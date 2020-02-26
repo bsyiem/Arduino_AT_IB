@@ -89,7 +89,7 @@ void loop() {
         if(buttonState == HIGH){
           switchOffLeds();
           reactionTime = lastDebounceTime - startTime;
-          Serial.print(reactionTime);
+          Serial.print(incoming+" : "+reactionTime);
         }
       }
   } 
@@ -109,16 +109,16 @@ void switchOffLeds(){
 
 //if participant failed to detect LED and new LED event received
 //if true send "failed to detect"
-void checkFailedToDetect(){ 
+void checkFailedToDetect(String incoming){ 
     if(isLedOn == 1){
       reactionTime = micros() - startTime;
-      Serial.print("Failed to detect: "+reactionTime);
+      Serial.print("Failed to detect" +incoming+" : "+reactionTime);
     }
 }
 
 int setUpLed(String incoming){
   if(incoming == "0"){
-    checkFailedToDetect();     
+    checkFailedToDetect(incoming);     
     //turn on led 0
     digitalWrite(LED_ZERO,HIGH);
     digitalWrite(LED_ONE,LOW);
@@ -129,7 +129,7 @@ int setUpLed(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "1"){
-    checkFailedToDetect();  
+    checkFailedToDetect(incoming);  
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
     digitalWrite(LED_ONE,HIGH);
@@ -140,7 +140,7 @@ int setUpLed(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "2"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
     digitalWrite(LED_ONE,LOW);
@@ -151,7 +151,7 @@ int setUpLed(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "3"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
     digitalWrite(LED_ONE,LOW);
@@ -162,7 +162,7 @@ int setUpLed(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "4"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
     digitalWrite(LED_ONE,LOW);
@@ -182,7 +182,7 @@ int test(String incoming){
   Serial.println(incoming);
 
   if(incoming == "0\n"){
-    checkFailedToDetect();     
+    checkFailedToDetect(incoming);     
     Serial.print("zero");
     //turn on led 0
     digitalWrite(LED_ZERO,HIGH);
@@ -194,7 +194,7 @@ int test(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "1\n"){
-    checkFailedToDetect();    
+    checkFailedToDetect(incoming);    
     Serial.print("one");
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
@@ -206,7 +206,7 @@ int test(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "2\n"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     Serial.print("two"); 
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
@@ -218,7 +218,7 @@ int test(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "3\n"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     Serial.print("three"); 
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
@@ -230,7 +230,7 @@ int test(String incoming){
     //start timer -  records current time 
     startTime = micros();
   }else if(incoming == "4\n"){
-    checkFailedToDetect();
+    checkFailedToDetect(incoming);
     Serial.print("four");
     //turn on led 1
     digitalWrite(LED_ZERO,LOW);
