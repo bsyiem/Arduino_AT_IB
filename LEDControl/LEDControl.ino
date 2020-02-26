@@ -112,7 +112,7 @@ void switchOffLeds(){
 void checkFailedToDetect(){ 
     if(isLedOn == 1){
       reactionTime = micros() - startTime;
-      Serial.print("failed to detect");
+      Serial.print("Failed to detect: "+reactionTime);
     }
 }
 
