@@ -109,126 +109,121 @@ void switchOffLeds(){
 
 int setUpLed(String incoming){
   if(incoming == "0"){     
-//      Serial.print("ZERO");
-      //turn on led 0
-      digitalWrite(LED_ZERO,HIGH);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);
-      isLedOn = 1;
-    }else if(incoming == "1"){    
-//      Serial.print("ONE");
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,HIGH);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);   
-      isLedOn = 1;
-    }else if(incoming == "2"){
-//      Serial.print("TWO"); 
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,HIGH);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);  
-      isLedOn = 1;
-    }else if(incoming == "3"){
-//      Serial.print("THREE"); 
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,HIGH);
-      digitalWrite(LED_FOUR,LOW);    
-      isLedOn = 1;
-    }else if(incoming == "4"){
-//      Serial.print("FOUR");
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,HIGH); 
-      isLedOn = 1;
-    }
-
+    //turn on led 0
+    digitalWrite(LED_ZERO,HIGH);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);
+    isLedOn = 1;
     //start timer -  records current time 
     startTime = micros();
+  }else if(incoming == "1"){  
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,HIGH);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);   
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "2"){
+//      Serial.print("TWO"); 
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,HIGH);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);  
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "3"){
+//      Serial.print("THREE"); 
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,HIGH);
+    digitalWrite(LED_FOUR,LOW);    
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "4"){
+//      Serial.print("FOUR");
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,HIGH); 
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }
 }
 
-void test(String incoming){
-  String a = "0";
-  Serial.println(incoming);
 
-  Serial.println(incoming == "0\n");
-  Serial.println(a == "0");
-  
-  if(incoming == "0"){     
-      Serial.print("zero"); 
-    }else if(incoming == "1"){    
-      Serial.print("one");     
-    }else if(incoming == "2"){
-      Serial.print("TWO");    
-    }else if(incoming == "3"){
-      Serial.print("THREE");    
-    }else if(incoming == "4"){
-      Serial.print("FOUR");
-    }
-}
-
-int test2(String incoming){
+//this works with the serial monitor
+// "\n" needed
+int test(String incoming){
   Serial.println(incoming);
 
   if(incoming == "0\n"){     
-      Serial.print("zero");
-      //turn on led 0
-      digitalWrite(LED_ZERO,HIGH);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);
-      isLedOn = 1;
-    }else if(incoming == "1\n"){    
-      Serial.print("one");
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,HIGH);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);   
-      isLedOn = 1;
-    }else if(incoming == "2\n"){
-      Serial.print("two"); 
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,HIGH);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,LOW);  
-      isLedOn = 1;
-    }else if(incoming == "3\n"){
-      Serial.print("three"); 
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,HIGH);
-      digitalWrite(LED_FOUR,LOW);    
-      isLedOn = 1;
-    }else if(incoming == "4\n"){
-      Serial.print("four");
-      //turn on led 1
-      digitalWrite(LED_ZERO,LOW);
-      digitalWrite(LED_ONE,LOW);
-      digitalWrite(LED_TWO,LOW);
-      digitalWrite(LED_THREE,LOW);
-      digitalWrite(LED_FOUR,HIGH); 
-      isLedOn = 1;
-    }
-
+    Serial.print("zero");
+    //turn on led 0
+    digitalWrite(LED_ZERO,HIGH);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);
+    isLedOn = 1;
     //start timer -  records current time 
     startTime = micros();
+  }else if(incoming == "1\n"){    
+    Serial.print("one");
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,HIGH);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);   
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "2\n"){
+    Serial.print("two"); 
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,HIGH);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,LOW);  
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "3\n"){
+    Serial.print("three"); 
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,HIGH);
+    digitalWrite(LED_FOUR,LOW);    
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }else if(incoming == "4\n"){
+    Serial.print("four");
+    //turn on led 1
+    digitalWrite(LED_ZERO,LOW);
+    digitalWrite(LED_ONE,LOW);
+    digitalWrite(LED_TWO,LOW);
+    digitalWrite(LED_THREE,LOW);
+    digitalWrite(LED_FOUR,HIGH); 
+    isLedOn = 1;
+    //start timer -  records current time 
+    startTime = micros();
+  }
 }
