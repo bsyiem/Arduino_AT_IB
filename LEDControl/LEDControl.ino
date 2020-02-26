@@ -98,6 +98,15 @@ void loop() {
   lastButtonState = buttonRead;
 }
 
+void switchOffLeds(){
+  digitalWrite(LED_ZERO,LOW);
+  digitalWrite(LED_ONE,LOW);
+  digitalWrite(LED_TWO,LOW);
+  digitalWrite(LED_THREE,LOW);
+  digitalWrite(LED_FOUR,LOW);
+  isLedOn = 0;
+}
+
 int setUpLed(String incoming){
   if(incoming == "0"){     
 //      Serial.print("ZERO");
@@ -222,12 +231,4 @@ int test2(String incoming){
 
     //start timer -  records current time 
     startTime = micros();
-}
-
-void switchOffLeds(){
-  digitalWrite(LED_ZERO,LOW);
-  digitalWrite(LED_ONE,LOW);
-  digitalWrite(LED_TWO,LOW);
-  digitalWrite(LED_THREE,LOW);
-  digitalWrite(LED_FOUR,LOW);
 }
