@@ -1,10 +1,10 @@
 //setting pins
 //LED pins
-const int LED_ZERO = 13;
-const int LED_ONE = 12;
-const int LED_TWO = 11;
-const int LED_THREE = 10;
-const int LED_FOUR = 9;
+const int LED_ZERO = 12;
+const int LED_ONE = 11;
+const int LED_TWO = 10;
+const int LED_THREE = 9;
+const int LED_FOUR = 8;
 
 //button pin
 const int BUTTON_PIN = 2;
