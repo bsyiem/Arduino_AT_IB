@@ -96,7 +96,7 @@ void loop() {
         if(buttonState == HIGH){
           switchOffLeds();
           reactionTime = lastDebounceTime - startTime;
-          Serial.println(incoming+":"+reactionTime);
+          Serial.println(incoming+","+reactionTime);
           Serial.flush();
         }
       }
@@ -132,7 +132,7 @@ void checkFailedToDetect(String previousIncoming){
   //  if and led is on then there is a missed event, send failed to detect with max reaction time allowed
   if(isLedOn == 1){
     reactionTime = micros() - startTime;
-    Serial.println("Failed to detect "+previousIncoming+":"+reactionTime);
+    Serial.println("F"+previousIncoming+","+reactionTime);
     Serial.flush();
   }
 }
