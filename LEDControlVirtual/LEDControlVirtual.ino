@@ -44,7 +44,7 @@ void loop() {
     previousIncoming = incoming;
     
     //first check if previous event was responded to
-    checkFailedToDetect(incoming);   
+//    checkFailedToDetect(incoming);   
     
     //read message
     incoming = Serial.readString();
@@ -91,7 +91,7 @@ void checkFailedToDetect(String previousIncoming){
   //  if and led is on then there is a missed event, send failed to detect with max reaction time allowed
   if(isLedOn == 1){
     reactionTime = (micros() - startTime) + (sendDelay * 1000);
-    Serial.println("F"+previousIncoming+","+reactionTime);
+    Serial.println(previousIncoming+","+reactionTime+",F");
     Serial.flush();
   }
   delay(sendDelay);

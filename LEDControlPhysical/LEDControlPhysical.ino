@@ -132,7 +132,7 @@ void checkFailedToDetect(String previousIncoming){
   //  if and led is on then there is a missed event, send failed to detect with max reaction time allowed
   if(isLedOn == 1){
     reactionTime = micros() - startTime;
-    Serial.println("F"+previousIncoming+","+reactionTime);
+    Serial.println(previousIncoming+","+reactionTime+",F");
     Serial.flush();
   }
 }
