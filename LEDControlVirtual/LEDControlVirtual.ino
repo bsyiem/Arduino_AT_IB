@@ -24,7 +24,7 @@ unsigned long reactionTime;
 int isLedOn = 0; //button reading is taken only when LED is on
 
 //delay for sending in milliseconds - MUST BE ADDED to REACTION TIMES
-unsigned long sendDelay = 60;
+unsigned long sendDelay = 100;
 
 void setup() {
   Serial.begin(9600); // send and receive at 9600 baud
