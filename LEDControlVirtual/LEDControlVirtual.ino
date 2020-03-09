@@ -1,3 +1,17 @@
+/*
+ *          LED
+ * buttoon  True  false
+ *  True    TP    FP
+ *  False   FN    TN
+ *  
+ *  T = true
+ *  F = False
+ *  P = Positive
+ *  N = Negative
+ *  
+ *  FN is never recorded as this is the case when the button is NOT pressed when LED's are not ON
+ */
+
 //button pin
 const int BUTTON_PIN = 2;
 
@@ -53,9 +67,9 @@ void loop() {
 //    test(incoming);
   }
 
-  if(isLedOn == 1){
+//  if(isLedOn == 1){
     buttonRead = digitalRead(BUTTON_PIN);  
-  }
+//  }
   
   if(buttonRead != lastButtonState){
     //reset debounce time
@@ -69,10 +83,16 @@ void loop() {
         
         //record the reaction time.
         if(buttonState == HIGH){
-          switchOffLeds();
-          reactionTime = (lastDebounceTime - startTime) + (sendDelay * 1000);
-          Serial.println(incoming+","+reactionTime);
-          Serial.flush();
+          if(isLedOn == 0){
+            Serial.println(",,FP");
+            Serial.flush();
+          }else{
+            switchOffLeds();
+            reactionTime = (lastDebounceTime - startTime) + (sendDelay * 1000);
+            Serial.println(incoming+","+reactionTime+",TP");
+            Serial.flush();
+          }
+          
         }
       }
   } 
@@ -91,7 +111,7 @@ void checkFailedToDetect(String previousIncoming){
   //  if and led is on then there is a missed event, send failed to detect with max reaction time allowed
   if(isLedOn == 1){
     reactionTime = (micros() - startTime) + (sendDelay * 1000);
-    Serial.println(previousIncoming+","+reactionTime+",F");
+    Serial.println(previousIncoming+","+reactionTime+",FN");
     Serial.flush();
   }
   delay(sendDelay);
